@@ -8,6 +8,22 @@ canvas.height = boardHeight + cellSize;
 var context = canvas.getContext("2d");
 var cells = [];  //массив ячеек на поле
 var whoseTurn = "black"; // кто ходит  black/white
+var timerValue = 5 * 60 * 1000;
+
+
+// по истечению 5 минут меняем игрока на противополжного
+var timer = setInterval(function(){
+
+    if (whoseTurn === "white") {
+        whoseTurn = "black";  // следующий ход черных
+        var el = document.getElementById("player");
+        el.innerHTML = "Ход черных";
+    } else {
+        whoseTurn = "white"; // следующий ход белых
+        var el = document.getElementById("player");
+        el.innerHTML = "Ход белых";
+    }
+}, timerValue);
 
 
 (function init() {
