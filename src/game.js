@@ -132,3 +132,4 @@ function isDame(cell) {
 
     return true;
 }
+
